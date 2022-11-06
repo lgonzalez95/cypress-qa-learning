@@ -1,0 +1,33 @@
+version: '3.4'
+
+services:
+  cypress-chrome:
+    container_name: cypress-chrome
+    image: cypress-test-runner
+    environment:
+      BROWSER: chrome
+      ONDEMAND: ${ONDEMAND}
+      ENV: ${ENV}
+    volumes:
+      - ./cypress/reports/chrome:/app/cypress/reports
+
+  cypress-firefox:
+    build: .
+    container_name: cypress-firefox
+    image: cypress-test-runner
+    environment:
+      BROWSER: firefox
+      ONDEMAND: ${ONDEMAND}
+      ENV: ${ENV}
+    volumes:
+      - ./cypress/reports/firefox:/app/cypress/reports
+
+  cypress-edge:
+    container_name: cypress-edge
+    image: cypress-test-runner
+    environment:
+      BROWSER: edge
+      ONDEMAND: ${ONDEMAND}
+      ENV: ${ENV}
+    volumes:
+      - ./cypress/reports/edge:/app/cypress/reports

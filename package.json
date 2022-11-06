@@ -1,0 +1,29 @@
+{
+  "name": "cypress-workshop",
+  "version": "1.0.0",
+  "description": "Web testing framework using Cypress 10",
+  "scripts": {
+    "cy:clean": "./scripts/clear-files.sh",
+    "cy:acceptance": "./scripts/acceptance-tests.sh",
+    "cy:dev:open": "cypress open --env dev=1"
+  },
+  "keywords": [
+    "Cypress",
+    "Testing"
+  ],
+  "author": "Luis Gonzalez Flores",
+  "devDependencies": {
+    "cypress": "^10.4.0",
+    "cypress-mochawesome-reporter": "^3.2.2",
+    "cypress-multi-reporters": "^1.6.1",
+    "install": "^0.13.0",
+    "junit-report-merger": "^4.0.0",
+    "npm": "^8.16.0",
+    "typescript": "^4.7.4",
+    "uuid": "^8.3.2"
+  },
+  "dependencies": {
+    "mocha-junit-reporter": "^2.0.2",
+    "save-dev": "^0.0.1-security"
+  }
+}
