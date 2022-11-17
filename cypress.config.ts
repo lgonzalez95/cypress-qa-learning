@@ -24,5 +24,5 @@ export default defineConfig({
   video: false,
   viewportWidth: 1280,
   viewportHeight: 720,
-  retries: 3,
+  retries: 1,
 });
