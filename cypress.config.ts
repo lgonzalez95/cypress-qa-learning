@@ -11,6 +11,12 @@ export default defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
       require('cypress-mochawesome-reporter/plugin')(on);
+      if (config.env.dev == 1) {
+        config.baseUrl = 'https://practice.automationtesting.in/';
+      } else {
+        config.baseUrl = 'https://www.google.com';
+      }
+      return config;
     },
   },
   pageLoadTimeout: 30000,
