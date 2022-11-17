@@ -24,6 +24,13 @@ pipeline{
                     sh './scripts/rename-reports.sh'
                     junit('cypress/reports/*/junit/*.xml')
                     publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, includes: '**/*.html', keepAll: false, reportDir: 'cypress/reports/', reportFiles: '', reportName: 'HTML Report', reportTitles: ''])
+                    
+                    emailext attachmentsPattern: '**/*.html', 
+                    body: '''${SCRIPT, template="groovy-html.template"}''', 
+                    mimeType: 'text/html', 
+                    subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - ${currentBuild.currentResult}", 
+                    to: '${DEFAULT_RECIPIENTS}'
+
                 }
                 cleanup{
                     sh 'docker compose down'
