@@ -30,7 +30,7 @@ pipeline{
                     mimeType: 'text/html', 
                     subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - ${currentBuild.currentResult}", 
                     to: '${DEFAULT_RECIPIENTS}'
-
+                    //Testing
                 }
                 cleanup{
                     sh 'docker compose down'
